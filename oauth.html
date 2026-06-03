@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Collab Cult — Instagram authorization</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background:#f4f1ec; color:#111;
+         max-width:680px; margin:80px auto; padding:0 24px; text-align:center; }
+  .dot { display:inline-block;width:10px;height:10px;border-radius:50%;background:#c8553d;margin-right:8px; }
+  h2 { font-weight:600; }
+  code { display:block; word-break:break-all; background:#fff; border:1px solid #d9d4cc;
+         padding:18px; margin:24px 0; font-size:15px; border-radius:8px; }
+  button { background:#c8553d; color:#f4f1ec; border:0; padding:12px 22px; font-size:15px;
+           border-radius:8px; cursor:pointer; }
+  .muted { color:#6b6660; font-size:14px; }
+</style>
+</head>
+<body>
+  <h2><span class="dot"></span>Collab Cult — authorization</h2>
+  <p class="muted">Copy the code below and paste it back to Sandy. Then close this tab.</p>
+  <code id="code">No code found in the URL.</code>
+  <button onclick="navigator.clipboard.writeText(document.getElementById('code').textContent)">Copy code</button>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const code = p.get('code');
+    const err = p.get('error_description') || p.get('error');
+    document.getElementById('code').textContent = code ? code : (err ? ('ERROR: ' + err) : 'No code found in the URL.');
+  </script>
+</body>
+</html>
